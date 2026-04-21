@@ -148,7 +148,7 @@ legend_items = [
     plt.Rectangle((0, 0), 1, 1, facecolor=C_FLAP, alpha=0.85,
                   label=f"Flap  ({FLAP_TYPE})"),
 ]
-ax_land.legend(handles=legend_items, loc="lower right",
+ax_land.legend(handles=legend_items, loc="upper right",
                fontsize=8, framealpha=0.95)
 
 # ---------- PLANFORM ----------
@@ -231,7 +231,8 @@ ax_pf.set_ylabel("Chordwise position, x  [m]   (flow ↓)")
 ax_pf.set_aspect("equal")
 ax_pf.invert_yaxis()   # put LE at top of the plot
 ax_pf.grid(alpha=0.3, ls="--")
-ax_pf.legend(loc="lower left", fontsize=9, framealpha=0.95)
+ax_pf.legend(loc="upper center", bbox_to_anchor=(0.5, -0.10),
+             ncol=4, fontsize=9, framealpha=0.95)
 
 # ---------- DESIGN-SUMMARY BOX ----------
 spec = (
