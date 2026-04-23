@@ -1,0 +1,13 @@
+LOAD sc20710.dat
+PANE
+OPER
+VISC 13100000
+MACH 0.2
+ITER 200
+PACC
+polar_output.txt
+
+ASEQ 0 20 0.5
+PACC
+
+QUIT
