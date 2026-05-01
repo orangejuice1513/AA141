@@ -29,7 +29,7 @@ alpha_0L_deg = -4.65                   # Zero-lift AoA [deg] (XFOIL extrapolatio
 AR           = 19.0                    # Aspect ratio
 b            = 50.0                    # Wingspan [m]
 lam          = 0.35                    # Taper ratio λ  (from SUGAR)
-Lambda_LE_deg    = 14.0                # Leading-edge sweep [deg]
+Lambda_LE_deg    = 10.0                # Leading-edge sweep [deg]
 Lambda_025c_deg  = 10.0                # Quarter-chord sweep [deg] (≈ Λ_LE for low sweep)
 
 # --- Flight conditions (takeoff) ---
@@ -89,7 +89,10 @@ beta    = np.sqrt(beta_sq)
 
 # η from Eq. 12.8: convert 2-D slope to per-radian first
 cl_alpha_2d_rad = cl_alpha_2d * (180.0 / np.pi)                   # [per radian]
-eta = cl_alpha_2d_rad / (2 * np.pi / beta)                         # Eq. 12.8
+eta_raw = cl_alpha_2d_rad / (2 * np.pi / beta)   # Eq. 12.8 (raw)
+eta = min(eta_raw, 0.95)                          # Raymer cap
+if eta_raw > 1.0:
+    print(f"  [Note] η_raw = {eta_raw:.4f} > 1; capping at 0.95 per Raymer") # Eq. 12.8
 
 # Full Eq. 12.6
 A = AR
