@@ -29,7 +29,7 @@ alpha_0L_deg = -4.65                   # Zero-lift AoA [deg] (XFOIL extrapolatio
 AR           = 19.0                    # Aspect ratio
 b            = 50.0                    # Wingspan [m]
 lam          = 0.35                    # Taper ratio λ  (from SUGAR)
-Lambda_LE_deg    = 10.0                # Leading-edge sweep [deg]
+Lambda_LE_deg    = 14.0                # Leading-edge sweep [deg]
 Lambda_025c_deg  = 10.0                # Quarter-chord sweep [deg] (≈ Λ_LE for low sweep)
 
 # --- Flight conditions (takeoff) ---
